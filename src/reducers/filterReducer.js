@@ -1,5 +1,14 @@
+import { UPDATE_FILTER_STATE } from "../actions/types";
+
 const filterReducer = (state = {}, action) => {
-    return state;
-}
+  switch (action.type) {
+    case UPDATE_FILTER_STATE:
+      return {
+        filterState: action.filterState
+      };
+    default:
+      return state;
+  }
+};
 
 export default filterReducer;
