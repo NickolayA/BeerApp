@@ -5,7 +5,6 @@ import BeerCard from "./BeerCard";
 class ShowCase extends React.Component {
   render() {
     const beerData = this.props.beerData;
-    console.log(beerData);
     return (
       <React.Fragment>
         {Object.keys(beerData).length ? (

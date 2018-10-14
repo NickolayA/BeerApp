@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Spinner from "react-spinkit";
 import Filter from "./components/Filter";
 import Pagination from "./components/Pagination";
-import LoadingIndicator from "./components/LoadingIndicator";
 import ShowCase from "./components/ShowCase";
 import RandomBeer from "./components/RandomBeer";
 
@@ -12,13 +12,15 @@ class App extends Component {
       <div className="App columns">
         <div className="column">
           <Filter />
-          <RandomBeer />
         </div>
         <div className="column">
-          <Pagination />
-          <ShowCase />
+          <RandomBeer /> <Pagination />
+          {this.props.showLoadingIndicator ? (
+            <Spinner name="three-bounce" />
+          ) : (
+            <ShowCase />
+          )}
         </div>
-        {this.props.showLoadingIndicator ? <LoadingIndicator /> : null}
       </div>
     );
   }

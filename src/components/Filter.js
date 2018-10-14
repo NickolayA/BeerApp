@@ -46,7 +46,9 @@ class Filter extends React.Component {
             />
           );
         })}
-        <button>Filter</button>
+        <div className="field">
+          <button className="button is-link">Filter</button>
+        </div>
       </form>
     );
   }

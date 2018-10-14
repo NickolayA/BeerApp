@@ -21,7 +21,9 @@ const RandomBeer = props => {
           />
         </div>
       ) : null}
-      <button onClick={props.showRandomBeer}>Show Random Beer</button>
+      <button className="pagination-link" onClick={props.showRandomBeer}>
+        Show Random Beer
+      </button>
     </React.Fragment>
   );
 };

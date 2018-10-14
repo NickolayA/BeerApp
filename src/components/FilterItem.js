@@ -2,16 +2,21 @@ import React from "react";
 
 const FilterItem = props => {
   const { fieldType, fieldName } = props;
+  const labelText = fieldName.replace("_", " ").toUpperCase();
   return (
     <React.Fragment>
-      <label htmlFor={fieldName}>{fieldName.toUpperCase()}</label>
-      <input
-        type={fieldType}
-        id={fieldName}
-        name={fieldName}
-        placeholder={fieldName}
-      />
-      <br />
+      <div className="field">
+        <label className="label is-small" htmlFor={fieldName}>
+          {labelText}
+        </label>
+        <input
+          className="input is-rounded is-small"
+          type={fieldType}
+          id={fieldName}
+          name={fieldName}
+          placeholder={fieldName}
+        />
+      </div>
     </React.Fragment>
   );
 };

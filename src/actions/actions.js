@@ -14,7 +14,9 @@ import axios from "axios";
 export const makeApiRequestWithParameters = () => async dispatch => {
   const baseUrl = "https://api.punkapi.com/v2/beers?";
 
-  dispatch({ type: SHOW_LOADING_INDICATOR });
+  dispatch({
+    type: SHOW_LOADING_INDICATOR
+  });
 
   const state = store.getState();
   const beerParameters = state.filterReducer.filterState;
@@ -46,21 +48,36 @@ export const makeApiRequestWithParameters = () => async dispatch => {
 
     console.log(requestWithPagination, requestWithPaginationCheck);
 
-    dispatch({ type: HIDE_LOADING_INDICATOR });
+    dispatch({
+      type: HIDE_LOADING_INDICATOR
+    });
 
-    if (!response.data.length) throw true;
+    if (!response.data.length) throw new Error();
 
     if (checkResponse.data.length) {
-      dispatch({ type: SHOW_NEXT_BUTTON, showNextButton: true });
+      dispatch({
+        type: SHOW_NEXT_BUTTON,
+        showNextButton: true
+      });
     } else {
-      dispatch({ type: SHOW_NEXT_BUTTON, showNextButton: false });
+      dispatch({
+        type: SHOW_NEXT_BUTTON,
+        showNextButton: false
+      });
     }
 
-    dispatch({ type: LOAD_NEW_BEER_DATA, response: response.data });
+    dispatch({
+      type: LOAD_NEW_BEER_DATA,
+      response: response.data
+    });
   } catch (err) {
-    dispatch({ type: HIDE_LOADING_INDICATOR });
+    dispatch({
+      type: HIDE_LOADING_INDICATOR
+    });
 
-    dispatch({ type: DATA_WAS_NOT_FOUND });
+    dispatch({
+      type: DATA_WAS_NOT_FOUND
+    });
   }
 };
 
@@ -69,9 +86,15 @@ export const showRandomBeer = () => async dispatch => {
 
   const response = await axios(randomBeerUrl);
   console.log("ShowRanodmBeer", response.data[0]);
-  dispatch({ type: SHOW_RANDOM_BEER, randomBeer: response.data[0] });
+  dispatch({
+    type: SHOW_RANDOM_BEER,
+    randomBeer: response.data[0]
+  });
 };
 
 export const updateFilterState = filterState => {
-  return { type: UPDATE_FILTER_STATE, filterState };
+  return {
+    type: UPDATE_FILTER_STATE,
+    filterState
+  };
 };
