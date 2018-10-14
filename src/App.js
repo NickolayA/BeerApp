@@ -14,12 +14,13 @@ class App extends Component {
           <Filter />
         </div>
         <div className="column">
-          <RandomBeer /> <Pagination />
+          <RandomBeer />
           {this.props.showLoadingIndicator ? (
             <Spinner name="three-bounce" />
           ) : (
             <ShowCase />
           )}
+          <Pagination />
         </div>
       </div>
     );
