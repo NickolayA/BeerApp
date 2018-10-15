@@ -14,6 +14,7 @@ class App extends Component {
           <Filter />
         </div>
         <div className="column">
+          <Pagination />
           <RandomBeer />
           {this.props.showLoadingIndicator ? (
             <Spinner name="three-bounce" />

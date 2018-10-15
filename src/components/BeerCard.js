@@ -8,6 +8,11 @@ const BeerCard = props => {
         <div className="card-content">
           <div className="media-content">
             <p className="title">{beerData["name"]}</p>
+            <div className="card-image">
+              <figure className="image  is-128x128">
+                <img src={beerData.image_url} alt={beerData["name"]} />
+              </figure>
+            </div>
           </div>
           <div className="content">
             {beerData["description"]}
